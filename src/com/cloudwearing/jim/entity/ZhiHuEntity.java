@@ -1,3 +1,7 @@
+package com.cloudwearing.jim.entity;
+
+import com.cloudwearing.jim.Spider;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,27 +10,18 @@ import java.util.regex.Pattern;
  * Created by xwhqs on 2016/3/15.
  */
 
-public class ZhiHu {
-    public String question;//问题
-    public String questionDescription;//问题描述
-    public String zhihuUrl;//网页链接
-    public ArrayList<String> answers;//存储所有的回答
+public class ZhiHuEntity extends PageEntity {
+    public String question = "";//问题
+    public String questionDescription = "";//问题描述
+    public String zhihuUrl = "";//网页链接
+    public ArrayList<String> answers = new ArrayList<>();//存储所有的回答
 
-    //构造方法存储所有的数据
-    public ZhiHu(String url) {
-
-        //初始化属性
-        question = "";
-        questionDescription = "";
-        zhihuUrl = "";
-        answers = new ArrayList<>();
-
-        //判断url的合法性
+    public ZhiHuEntity(String url) {
         if (getRealUrl(url)) {
             System.out.println("正在抓取" + zhihuUrl);
 
             // 根据url获取该问答的细节
-            String content = Spider.SentGet(zhihuUrl);
+            String content = Spider.fetchPageContent(zhihuUrl);
             Pattern pattern;
             Matcher matcher;
 
@@ -66,11 +61,10 @@ public class ZhiHu {
         Matcher matcher = pattern.matcher(url);
         if (matcher.find()) {
             zhihuUrl = "http://www.zhihu.com/question/" + matcher.group(1);
+            return true;
         } else {
             return false;
         }
-
-        return true;
     }
 
 

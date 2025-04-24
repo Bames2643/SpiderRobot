@@ -1,11 +1,11 @@
+package com.cloudwearing.jim.dao;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Created by xwhqs on 2016/3/15.
- */
 public class FileReaderWriter {
+
     public static boolean createNewFile(String filePath) {
         boolean isSuccess = true;
 
@@ -29,7 +29,7 @@ public class FileReaderWriter {
             e.printStackTrace();
         }
 
-        return false;
+        return isSuccess;
     }
 
     public static boolean writeIntoFile(String content, String filePath, boolean isAppend) {
@@ -72,7 +72,7 @@ public class FileReaderWriter {
             }
         }
 
-        return false;
+        return isSuccess;
     }
 
 }
