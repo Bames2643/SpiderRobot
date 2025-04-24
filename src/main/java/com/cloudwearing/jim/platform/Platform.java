@@ -1,10 +1,15 @@
 package com.cloudwearing.jim.platform;
 
-import com.cloudwearing.jim.entity.PageEntity;
-
 import java.util.List;
 
 public abstract class Platform<T> {
+
+
+    public abstract int getMaxDepth();
+
+    public abstract String getLoginUser();
+
+    public abstract String getLoginPwd();
 
     public abstract String getUrl();
 

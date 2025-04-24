@@ -8,13 +8,30 @@ import java.util.stream.Collectors;
 
 public class QQZone extends Platform<QQ> {
 
-    private final int maxDepth; //深度：从0开始
 
-    public QQZone(String startUrl, int maxDepth) {
+    private final int maxDepth; //深度：从0开始
+    private final String loginUser;
+    private final String loginPwd;
+
+    public int getMaxDepth() {
+        return maxDepth;
+    }
+
+    public String getLoginUser() {
+        return loginUser;
+    }
+
+    public String getLoginPwd() {
+        return loginPwd;
+    }
+
+    public QQZone(String startUrl, int maxDepth, String loginUser, String loginPwd) {
         if (startUrl == null) throw new NullPointerException();
         // todo 判断：不是QQ空间地址 => err
         this.url = startUrl;
         this.maxDepth = maxDepth;
+        this.loginUser = loginUser;
+        this.loginPwd = loginPwd;
     }
 
     protected String url;

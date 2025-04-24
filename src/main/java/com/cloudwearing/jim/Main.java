@@ -12,9 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PlatformFactory.set(new QQZone("https://user.qzone.qq.com/1337729961", 3));
-
-
+        PlatformFactory.set(new QQZone("https://user.qzone.qq.com/1337729961", 3, "", ""));
 
         start(Collections.singletonList(PlatformFactory.get().getUrl()), 0);
     }

@@ -25,6 +25,16 @@ public class ZhiHu extends Platform {
     }
 
     @Override
+    public String getLoginUser() {
+        throw new NullPointerException();
+    }
+
+    @Override
+    public String getLoginPwd() {
+        throw new NullPointerException();
+    }
+
+    @Override
     public PageEntity resolve(String group) {
         return new ZhiHuEntity(group);
     }
