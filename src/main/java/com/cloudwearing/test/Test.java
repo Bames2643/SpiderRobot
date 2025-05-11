@@ -1,17 +1,65 @@
 package com.cloudwearing.test;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.net.util.URLUtil;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Date;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Test {
 
-    public static void main(String[] args) {
 
-        WebDriver driver = new ChromeDriver();
+    public static void main(String[] args) throws IOException {
+        URL ori = new URL("https://www.baidu.com/test/in?o=3&t=44#mark9");
+        String res = URLUtil.urlNoFragString(ori);
+        System.out.println(" ==> " + ori);
+        System.out.println(res);
+        System.out.println(" ==> " + ori.getPath());
+        System.out.println(" ==> " + ori.getContent());
+        System.out.println(" ==> " + ori.getUserInfo());
+
 
 
 
     }
+
+
+//    public static void main(String[] args) {
+//        String chromedriver = Objects.requireNonNull(Object.class.getResource("/chromedriver/chromedriver.exe")).getPath();
+//        System.out.println("找到驱动：" + chromedriver);
+//        System.setProperty("webdriver.chrome.driver", chromedriver);
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://user.qzone.qq.com/1337729961");
+//        System.out.println(new Date());
+//        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+//        System.out.println(new Date());
+//        System.out.println("driver.getTitle() : " + driver.getTitle());
+//        System.out.println("driver.getCurrentUrl() : " + driver.getCurrentUrl());
+//        System.out.println("driver.getPageSource() : " + driver.getPageSource());
+//        System.out.println("driver.getWindowHandles(): " + (driver.getWindowHandles()));
+////        System.out.println("driver.manage().ime().getAvailableEngines(): " + driver.manage().ime().getAvailableEngines());
+//
+//// WebDriverWait wait = new WebDriverWait(driver, 40);
+//        System.out.println(new Date());
+////        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("head-nav")));
+//        System.out.print("Press ENTER to continue...");
+//        new Scanner(System.in).nextLine();
+//        System.out.println("======================================================================================================");
+//        System.out.println("driver.getTitle() : " + driver.getTitle());
+//        System.out.println("driver.getCurrentUrl() : " + driver.getCurrentUrl());
+//        System.out.println("driver.getPageSource() : " + driver.getPageSource());
+//        System.out.println(new Date());
+//
+//    }
 
 
 }
