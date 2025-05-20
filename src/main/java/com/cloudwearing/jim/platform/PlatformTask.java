@@ -1,8 +1,10 @@
 package com.cloudwearing.jim.platform;
 
+import com.cloudwearing.jim.entity.PageContent;
+
 import java.util.List;
 
-public abstract class Platform {
+public abstract class PlatformTask {
 
     protected String name;
     protected Integer grabDepth;
@@ -18,15 +20,15 @@ public abstract class Platform {
 
     protected boolean needLogin;
 
-    public Platform() {
+    public PlatformTask() {
     }
 
-    public Platform(String name) {
+    public PlatformTask(String name) {
         if (name == null) throw new NullPointerException();
         this.name = name;
     }
 
-    public Platform(String name, String url) {
+    public PlatformTask(String name, String url) {
         this(name);
         if (url == null) throw new NullPointerException();
         this.url = url;
@@ -56,7 +58,7 @@ public abstract class Platform {
      * @param content 整个页面内容
      * @return 继续下抓的页面
      */
-    public abstract List<? extends Platform> resolve(String content);
+    public abstract List<? extends PlatformTask> resolve(PageContent content);
 
     public void setGrabDepth(Integer depth) {
         this.grabDepth = depth;

@@ -6,7 +6,7 @@
 //
 //import java.util.List;
 //
-//public class ZhiHu extends Platform {
+//public class ZhiHu extends PlatformTask {
 //
 //    private String url = "https://www.zhihu.com/explore/recommendations";
 //

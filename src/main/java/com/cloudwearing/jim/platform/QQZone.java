@@ -1,10 +1,10 @@
 package com.cloudwearing.jim.platform;
 
-import com.cloudwearing.jim.entity.QQ;
+import com.cloudwearing.jim.entity.PageContent;
 
 import java.util.List;
 
-public class QQZone extends Platform {
+public class QQZone extends PlatformTask {
 
     public QQZone() {
     }
@@ -26,15 +26,15 @@ public class QQZone extends Platform {
     }
 
     @Override
-    public List<QQZone> resolve(String content) {
+    public List<QQZone> resolve(PageContent content) {
 
 
 //        ArrayList<PageEntity> results = new ArrayList<>();
-//        Pattern pattern = Pattern.compile(PlatformFactory.get().getRegex());
+//        Pattern pattern = Pattern.compile(TaskFactory.get().getRegex());
 //        Matcher matcher = pattern.matcher(content);
 //        Boolean isFind = matcher.find();
 //        while (isFind) {
-//            PageEntity pageEntity = (PageEntity) PlatformFactory.get().resolve(matcher.group(1));
+//            PageEntity pageEntity = (PageEntity) TaskFactory.get().resolve(matcher.group(1));
 //            results.add(pageEntity);
 //            isFind = matcher.find();
 //        }

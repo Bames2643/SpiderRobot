@@ -1,28 +1,28 @@
 package com.cloudwearing.jim.platform;
 
 
-public class PlatformFactory {
+public class TaskFactory {
 
-    private PlatformFactory() {
+    private TaskFactory() {
     }
 
-    private static PlatformFactory instance;
+    private static TaskFactory instance;
 
-    private Platform platform;
+    private PlatformTask platformTask;
 
-    public static void set(Platform platform) {
+    public static void set(PlatformTask platformTask) {
         if (instance == null) {
-            instance = new PlatformFactory();
+            instance = new TaskFactory();
         }
-        instance.platform = platform;
+        instance.platformTask = platformTask;
     }
 
-    public static Platform get() {
-        return instance.platform;
+    public static PlatformTask get() {
+        return instance.platformTask;
     }
 
 
-    public static Platform buildPlatform(String platform) {
+    public static PlatformTask buildPlatform(String platform) {
         switch (platform) {
             case "QQ":
             case "qq":
