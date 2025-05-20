@@ -3,12 +3,12 @@ package com.cloudwearing.jim.dao;
 public class DBHelper {
 
 
-    public static void write(String pageEntity) {
+    public static void write(String content) {
 
-        //        throw new NullPointerException();
         // todo
 
-        System.out.println(pageEntity);
+        System.out.println(content);
+        throw new NullPointerException();
 
     }
 }

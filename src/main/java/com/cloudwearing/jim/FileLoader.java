@@ -3,7 +3,7 @@ package com.cloudwearing.jim;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.cloudwearing.jim.entity.PageContent;
+import com.cloudwearing.jim.entity.PageContext;
 import com.cloudwearing.jim.platform.PlatformTask;
 import com.cloudwearing.jim.platform.TaskFactory;
 import org.apache.commons.io.FileUtils;
@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BootStarter implements Runnable {
+public class FileLoader implements Runnable {
 
     private final List<PlatformTask> platformTasks = new ArrayList<>();
 
@@ -44,7 +44,7 @@ public class BootStarter implements Runnable {
         String url = jsonObject.getString("url");
         if (StringUtils.isNotBlank(url)) platformTask.setUrl(url);
         Integer depth = jsonObject.getInteger("grab_depth");//抓取深度，默认3
-        platformTask.setGrabDepth(depth == null ? 3 : depth);
+        platformTask.setGrabDepth(depth == null ? 5 : depth);
         Integer needLogin = jsonObject.getInteger("need_login");// 是否需要额外登录,默认不需要
         platformTask.setNeedLogin(null != needLogin && needLogin == 1);
     }
@@ -56,7 +56,7 @@ public class BootStarter implements Runnable {
     private static void grabOne(PlatformTask platformTask, int currDepth) {
         if (platformTask.getGrabDepth() <= currDepth) return;
         System.out.println("########### [平台:" + platformTask.getName() + "] ######### 开始解析页面：" + platformTask.getUrl());
-        PageContent content = Spider.fetchPageContent(platformTask);
+        PageContext content = Spider.fetchPageContent(platformTask);
         if (null == content) {
             System.out.println("!! 无法解析页面 ===> " + platformTask.getUrl());
             return;

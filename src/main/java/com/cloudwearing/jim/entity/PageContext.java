@@ -3,15 +3,15 @@ package com.cloudwearing.jim.entity;
 /**
  * 抓取的页面结果
  */
-public class PageContent {
+public class PageContext {
 
     private String pageUrl; // 页面路径
     private String content; // 页面内容
 
-    public PageContent() {
+    public PageContext() {
     }
 
-    public PageContent(String pageUrl, String content) {
+    public PageContext(String pageUrl, String content) {
         this.pageUrl = pageUrl;
         this.content = content;
     }

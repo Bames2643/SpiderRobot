@@ -8,32 +8,16 @@ public class TaskFactory {
 
     private static TaskFactory instance;
 
-    private PlatformTask platformTask;
-
-    public static void set(PlatformTask platformTask) {
-        if (instance == null) {
-            instance = new TaskFactory();
-        }
-        instance.platformTask = platformTask;
-    }
-
-    public static PlatformTask get() {
-        return instance.platformTask;
-    }
-
-
     public static PlatformTask buildPlatform(String platform) {
-        switch (platform) {
-            case "QQ":
+        switch (platform.toLowerCase()) {
             case "qq":
-            case "QQZone":
-            case "qqZone":
             case "qqzone":
                 return new QQZone("QQZone");
-            case "wecaht":
+            case "wechat":
 
             default:
                 throw new IllegalArgumentException("未实现[" + platform + "]平台的抓取！");
         }
     }
+
 }

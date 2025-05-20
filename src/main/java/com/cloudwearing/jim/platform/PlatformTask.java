@@ -1,6 +1,6 @@
 package com.cloudwearing.jim.platform;
 
-import com.cloudwearing.jim.entity.PageContent;
+import com.cloudwearing.jim.entity.PageContext;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public abstract class PlatformTask {
      * @param content 整个页面内容
      * @return 继续下抓的页面
      */
-    public abstract List<? extends PlatformTask> resolve(PageContent content);
+    public abstract List<? extends PlatformTask> resolve(PageContext content);
 
     public void setGrabDepth(Integer depth) {
         this.grabDepth = depth;
